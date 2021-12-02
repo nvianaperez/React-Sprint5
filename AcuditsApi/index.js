@@ -44,7 +44,9 @@ function getJoke() {
 
     const HTMLelem = document.querySelector("#acudit");
 
-    fetch(`${apiUrl}/j`)
+    fetch(`${apiUrl}`, {
+        
+    })
         .then(response => response.json())
         .then(joke => {
             // Creamos un elemento de tipo p. A este elemento le pasamos un hijo de tipo texto.
