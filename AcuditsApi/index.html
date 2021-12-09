@@ -16,7 +16,6 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <script src="index.js"></script>   
 
     <title>AcuditsApi</title>
 </head>
@@ -24,15 +23,20 @@
 <body>
     <div class="container">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body d-inline-flex">
                 <h2 class="card-title">Preparat per riure?</h2>
-                <ion-icon name="happy" class="icon"></ion-icon>
-                <div id="acudit">
-                    <button type="button" onclick="getJoke()" class="btn btn-primary ml-5 mb-4">Següent acudit</button>
-                </div>
+                <h2><ion-icon name="happy" class="icon mx-4 mt-1 display-5"></ion-icon></h2>
+            </div>
+            <div id="acudit" class="d-flex flex-column mb-3">
+                <button id="acudit" class="btn btn-primary ml-5 mb-4" style="width:200px">Següent acudit</button>
+                <button id="allAcudits" class="btn btn-primary ml-5 mb-4" style="width:200px">Tots Acudits</button>
+                <button id="searchAcudit" class="btn btn-primary ml-5 mb-4" style="width:200px">Buscar acudit hipster</button>
             </div>
         </div>
     </div>
+
+    <script src="index.js"></script>   
+
 
     <!-- Option: Separate Popper and Bootstrap JS via CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

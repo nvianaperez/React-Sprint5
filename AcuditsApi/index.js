@@ -19,7 +19,6 @@
 // }
 
 //*************
-
 // function getJoke() {
 //     const xhr = new XMLHttpRequest();
 
@@ -39,24 +38,63 @@
 // }
 
 //*************
-function getJoke() {
-    const apiURL = "https://icanhazdadjoke.com/";
+//     const HTMLelem = document.querySelector("#acudit");
 
-    const HTMLelem = document.querySelector("#acudit");
-
-    fetch(`${apiUrl}`, {
-        
+//     fetch(`${apiURL}`, {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         method: 'GET'
+//     })
+//         .then(response => response.json())
+//         .then(joke => {
+//             // Creamos un elemento de tipo p. A este elemento le pasamos un hijo de tipo texto.
+//             let elem = document.createElement('p');
+//             elem.appendChild(document.createTextNode(`${joke}`));
+//             // y finalmente le añadimos elem al elemento inicial html
+//             HTMLelem.appendChild(elem);
+//         });
+// }
+/***** EXERCICI 1 *****/
+const apiUrl = "https://icanhazdadjoke.com/";
+document.querySelector('#acudit').addEventListener('click', () => {
+    fetch (apiUrl, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept": "application/json"
+        }
     })
-        .then(response => response.json())
-        .then(joke => {
-            // Creamos un elemento de tipo p. A este elemento le pasamos un hijo de tipo texto.
-            let elem = document.createElement('p');
-            elem.appendChild(document.createTextNode(`${joke}`));
-            // y le añadimos el elem a template
-            template.appendChild(elem);
-        });
-    // y finalmente le añadimos template al elemento inicial html
-    HTMLelem.appendChild(template);
-}
+    .then(res => res.json())
+    .then(res => console.log(res.joke))
+    .catch(error => console.log("Error reading data"+error))
+});
+/*
+document.querySelector('#allAcudits').addEventListener('click', () => {
+    fetch (`${apiUrl}/search`, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+        res.forEach(res => console.log(res.joke)) //Error reading dataTypeError: res.forEach is not a function
+    })
+    .catch(error => console.log("Error reading data"+error))
+});
 
-
+document.querySelector('#searchAcudit').addEventListener('click', () => {
+    fetch (`${apiUrl}/search?term=hipster`, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(error => console.log("Error reading data"+error))
+});*/
+/***** EXERCICI 2 *****/

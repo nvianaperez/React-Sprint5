@@ -68,7 +68,8 @@ const HTMLelem = document.querySelector("#app");
 //llamo al método fetch que recibe la url y devuelve una promise. el resultado de la promesa lo recogemos con .then
 fetch (`${apiUrl}/users`)
     .then(response => response.json()) // lo convierte en un json
-    // 2-inicializo template con los datos que necesito (map del objeto inicial), 3-insertar dentro del elemento html la variable con los datos
+    // 2-inicializo template con los datos que necesito (map del objeto inicial)
+    // 3-insertar dentro del elemento html la variable con los datos
     .then(users => {
         const template = users.map ((user) => `<li>${user.name} ${user.email}</li>`);
         HTMLelem.innerHTML = `<ul>${template}</ul>`;
@@ -87,7 +88,8 @@ const template = document.createElement('ul');
 fetch (`${apiUrl}/users`)
     .then(response => response.json())
     .then(users => {
-    // para cada user, creamos un elemento de tipo li. A este elemento le pasamos un hijo de tipo texto, que es el user y el mail.
+    // para cada user, creamos un elemento de tipo li. 
+    // A este elemento le pasamos un hijo de tipo texto, que es el user y el mail.
         users.forEach((user) => {
             let elem = document.createElement('li');
             elem.appendChild(document.createTextNode(`${user.name} ${user.email}`));
